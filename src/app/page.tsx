@@ -1,103 +1,97 @@
-import Image from "next/image";
+import Hero from "./(site)/components/Hero";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main>
+      {/* Hero Section */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <Hero />
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Project Showcase Section - Z Pattern */}
+      <section className="py-16">
+        <div className="mx-auto max-w-5xl px-6">
+          {/* Top Row - Image Left, Text Right */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            {/* Image */}
+            <div className="aspect-[4/3] bg-gradient-to-br from-[oklch(0.68_0.19_35)]/10 to-[oklch(0.2_0.03_250)]/10 rounded-lg flex items-center justify-center">
+              <span className="text-[oklch(0.35_0_0)] text-sm">Edtech Project Image</span>
+            </div>
+            
+            {/* Text */}
+            <div className="space-y-4">
+              <h3 className="text-2xl md:text-3xl font-[var(--font-serif)] text-[oklch(0.2_0.03_250)]">
+                Learning Platforms
+              </h3>
+              <p className="text-[oklch(0.35_0_0)] leading-7">
+                I've designed comprehensive learning experiences for Vacademy, Code Circle, SSDC, and The 7Cs. 
+                These platforms focus on creating intuitive user journeys that make complex educational content 
+                accessible and engaging for learners of all levels.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Row - Text Left, Image Right */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            {/* Text */}
+            <div className="space-y-4 md:order-1 order-2">
+              <h3 className="text-2xl md:text-3xl font-[var(--font-serif)] text-[oklch(0.2_0.03_250)]">
+                Agricultural Solutions
+              </h3>
+              <p className="text-[oklch(0.35_0_0)] leading-7">
+                Working with Satvaa and Maroi Boerdery BK, I've created digital solutions that bridge the gap 
+                between traditional farming practices and modern technology, helping farmers optimize their 
+                operations and increase productivity.
+              </p>
+            </div>
+            
+            {/* Image */}
+            <div className="aspect-[4/3] bg-gradient-to-br from-[oklch(0.2_0.03_250)]/10 to-[oklch(0.68_0.19_35)]/10 rounded-lg flex items-center justify-center md:order-2 order-1">
+              <span className="text-[oklch(0.35_0_0)] text-sm">Agritech Project Image</span>
+            </div>
+          </div>
+
+          {/* Third Row - Image Left, Text Right */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            {/* Image */}
+            <div className="aspect-[4/3] bg-gradient-to-br from-[oklch(0.68_0.19_35)]/10 to-[oklch(0.2_0.03_250)]/10 rounded-lg flex items-center justify-center">
+              <span className="text-[oklch(0.35_0_0)] text-sm">Fashion Project Image</span>
+            </div>
+            
+            {/* Text */}
+            <div className="space-y-4">
+              <h3 className="text-2xl md:text-3xl font-[var(--font-serif)] text-[oklch(0.2_0.03_250)]">
+                Fashion Platforms
+              </h3>
+              <p className="text-[oklch(0.35_0_0)] leading-7">
+                I've designed engaging digital experiences for Krazy Kreators and Fashion Flip, creating 
+                platforms that showcase fashion products with intuitive browsing, seamless shopping experiences, 
+                and visually appealing layouts that capture the essence of each brand.
+              </p>
+            </div>
+          </div>
+
+          {/* Fourth Row - Text Left, Image Right */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Text */}
+            <div className="space-y-4 md:order-1 order-2">
+              <h3 className="text-2xl md:text-3xl font-[var(--font-serif)] text-[oklch(0.2_0.03_250)]">
+                Responsive Websites
+              </h3>
+              <p className="text-[oklch(0.35_0_0)] leading-7">
+                I've created responsive websites for Vidyayatan Technologies, Nexus, Krazy Kreators, and more. 
+                These projects focus on delivering seamless user experiences across all devices, with clean 
+                designs and optimized performance for modern web standards.
+              </p>
+            </div>
+            
+            {/* Image */}
+            <div className="aspect-[4/3] bg-gradient-to-br from-[oklch(0.2_0.03_250)]/10 to-[oklch(0.68_0.19_35)]/10 rounded-lg flex items-center justify-center md:order-2 order-1">
+              <span className="text-[oklch(0.35_0_0)] text-sm">Responsive Website Image</span>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </main>
   );
 }
