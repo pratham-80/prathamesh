@@ -28,12 +28,12 @@ export default function AboutPage() {
                 About
               </h1>
       <p className="text-[17px] leading-8 text-[oklch(0.25_0_0)]">
-                I'm Prathamesh Ingale, a product designer who loves creating minimal, bold, and user-centered experiences.
+                I&apos;m Prathamesh Ingale, a product designer who loves creating minimal, bold, and user-centered experiences.
                 I believe design should be intuitive, accessible, and solve real problems for people.
       </p>
       <p className="text-[17px] leading-8 text-[oklch(0.25_0_0)]">
                 With a focus on user research and iterative design, I help teams build products that users love.
-                When I'm not designing, you'll find me exploring new design tools or sketching ideas in my notebook.
+                When I&apos;m not designing, you&apos;ll find me exploring new design tools or sketching ideas in my notebook.
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-[17px] leading-8 text-[oklch(0.25_0_0)]">
                   <p>
-                    When I'm not designing, you'll find me on night walks through the city, enjoying ice cream 
+                    When I&apos;m not designing, you&apos;ll find me on night walks through the city, enjoying ice cream 
                     and traveling to new places, camera in hand.
                   </p>
                   <p>

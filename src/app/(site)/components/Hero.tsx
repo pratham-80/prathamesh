@@ -24,7 +24,7 @@ export default function Hero() {
       </div>
       
       <p className="text-xl md:text-2xl text-balance text-center font-[var(--font-sans)] text-[oklch(0.25_0_0)]">
-        I'm Prathamesh Ingale, a Product Designer passionate about creating meaningful digital experiences.
+        I&apos;m Prathamesh Ingale, a Product Designer passionate about creating meaningful digital experiences.
       </p>
       
       <div className="flex items-center justify-center gap-3 pt-2">

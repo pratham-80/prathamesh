@@ -24,7 +24,7 @@ export default function Home() {
                 Learning Platforms
               </h3>
               <p className="text-[oklch(0.35_0_0)] leading-7">
-                I've designed comprehensive learning experiences for Vacademy, Code Circle, SSDC, and The 7Cs. 
+                I&apos;ve designed comprehensive learning experiences for Vacademy, Code Circle, SSDC, and The 7Cs. 
                 These platforms focus on creating intuitive user journeys that make complex educational content 
                 accessible and engaging for learners of all levels.
               </p>
@@ -39,7 +39,7 @@ export default function Home() {
                 Agricultural Solutions
               </h3>
               <p className="text-[oklch(0.35_0_0)] leading-7">
-                Working with Satvaa and Maroi Boerdery BK, I've created digital solutions that bridge the gap 
+                Working with Satvaa and Maroi Boerdery BK, I&apos;ve created digital solutions that bridge the gap 
                 between traditional farming practices and modern technology, helping farmers optimize their 
                 operations and increase productivity.
               </p>
@@ -64,7 +64,7 @@ export default function Home() {
                 Fashion Platforms
               </h3>
               <p className="text-[oklch(0.35_0_0)] leading-7">
-                I've designed engaging digital experiences for Krazy Kreators and Fashion Flip, creating 
+                I&apos;ve designed engaging digital experiences for Krazy Kreators and Fashion Flip, creating 
                 platforms that showcase fashion products with intuitive browsing, seamless shopping experiences, 
                 and visually appealing layouts that capture the essence of each brand.
               </p>
@@ -79,7 +79,7 @@ export default function Home() {
                 Responsive Websites
               </h3>
               <p className="text-[oklch(0.35_0_0)] leading-7">
-                I've created responsive websites for Vidyayatan Technologies, Nexus, Krazy Kreators, and more. 
+                I&apos;ve created responsive websites for Vidyayatan Technologies, Nexus, Krazy Kreators, and more. 
                 These projects focus on delivering seamless user experiences across all devices, with clean 
                 designs and optimized performance for modern web standards.
               </p>
