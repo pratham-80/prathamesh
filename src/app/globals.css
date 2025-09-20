@@ -121,4 +121,25 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Button typography styles */
+  button {
+    @apply font-[var(--font-sans)] font-semibold uppercase tracking-[0.5px] leading-[1.5];
+  }
+  
+  /* DM Serif Display styling - using weight 400 with bold appearance */
+  .font-serif-bold {
+    font-family: var(--font-serif), serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Ensure proper font fallbacks */
+  .font-serif {
+    font-family: var(--font-serif), serif;
+  }
+  
+  .font-sans {
+    font-family: var(--font-sans), sans-serif;
+  }
 }

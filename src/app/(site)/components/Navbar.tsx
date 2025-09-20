@@ -16,7 +16,7 @@ export function Navbar() {
         key={href}
         href={href}
         className={cn(
-          "text-sm md:text-base px-3 py-2 transition-colors",
+          "text-sm md:text-base px-3 py-2 transition-colors font-[var(--font-sans)] font-medium leading-[1.5]",
           active ? "text-[oklch(0.68_0.19_35)]" : "text-[oklch(0.25_0_0)] hover:text-[oklch(0.68_0.19_35)]"
         )}
         onClick={() => setIsMenuOpen(false)}

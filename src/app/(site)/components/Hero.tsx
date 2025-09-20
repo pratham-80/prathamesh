@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 export default function Hero() {
   return (
     <section className="text-center space-y-6">
-      <h1 className="text-7xl md:text-9xl tracking-tight font-bold font-[var(--font-serif)] text-[oklch(0.2_0.03_250)] lowercase">
-        howdy
+      <h1 className="text-6xl md:text-8xl tracking-tight font-[var(--font-sans)] font-semibold text-[oklch(0.2_0.03_250)] lowercase leading-[1.2]">
+        hey there!
       </h1>
       
       <div className="flex justify-center">
@@ -23,7 +23,7 @@ export default function Hero() {
         </svg>
       </div>
       
-      <p className="text-xl md:text-2xl text-balance text-center font-[var(--font-sans)] text-[oklch(0.25_0_0)]">
+      <p className="text-xl md:text-2xl text-balance text-center font-[var(--font-sans)] text-[oklch(0.25_0_0)] leading-[1.5] font-normal">
         I&apos;m Prathamesh Ingale, a Product Designer passionate about creating meaningful digital experiences.
       </p>
       
