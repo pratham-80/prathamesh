@@ -85,9 +85,16 @@ export default function ContactPage() {
             required 
           />
         </div>
-        <Button type="submit" disabled={loading} className="normal-case">
-          {loading ? "Sending..." : "Send Message"}
-        </Button>
+        <div className="flex justify-center">
+          <Button 
+            type="submit" 
+            disabled={loading} 
+            className="normal-case rounded-lg"
+            style={{WebkitAppearance: 'none', borderRadius: '8px'}}
+          >
+            {loading ? "Sending..." : "Send Message"}
+          </Button>
+        </div>
       </form>
 
       {message && (
@@ -100,10 +107,9 @@ export default function ContactPage() {
         </div>
       )}
 
-      <div className="pt-4 text-sm text-[oklch(0.35_0_0)] text-center">
-        <a className="underline mr-4 hover:text-[oklch(0.68_0.19_35)] transition-colors" href="https://linkedin.com/in/prathamesh-ingale" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a className="underline mr-4 hover:text-[oklch(0.68_0.19_35)] transition-colors" href="https://behance.net/prathamesh-ingale" target="_blank" rel="noreferrer">Behance</a>
-        <a className="underline hover:text-[oklch(0.68_0.19_35)] transition-colors" href="https://dribbble.com/prathamesh-ingale" target="_blank" rel="noreferrer">Dribbble</a>
+      <div className="pt-4 text-center">
+        <p className="text-sm text-[oklch(0.35_0_0)] mb-2">Let&apos;s chat, collaborate, or just say hi 👋</p>
+        <a className="text-sm underline hover:text-[oklch(0.68_0.19_35)] transition-colors" href="mailto:ingleprathmesh80@gmail.com">📩 ingleprathmesh80@gmail.com</a>
       </div>
     </main>
   );

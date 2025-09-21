@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button";
 export default function Hero() {
   return (
     <section className="text-center space-y-6">
-      <h1 className="text-6xl md:text-8xl tracking-tight font-[var(--font-sans)] font-semibold text-[oklch(0.2_0.03_250)] lowercase leading-[1.2]">
+      <h1 
+        className="text-6xl md:text-8xl tracking-tight font-[var(--font-sans)] font-semibold text-[oklch(0.2_0.03_250)] lowercase leading-[1.2]"
+        style={{WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale'}}
+      >
         hey there!
       </h1>
       

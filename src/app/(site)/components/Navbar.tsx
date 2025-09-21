@@ -27,7 +27,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full py-6 bg-[oklch(0.98_0.002_50_/_0.8)] backdrop-blur-md border-b border-[oklch(0.98_0.002_50_/_0.2)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full py-6 bg-[oklch(0.98_0.002_50_/_0.8)] backdrop-blur-md border-b border-[oklch(0.98_0.002_50_/_0.2)]" style={{WebkitBackdropFilter: 'blur(12px)', backdropFilter: 'blur(12px)'}}>
       <div className="mx-auto max-w-5xl px-6 flex items-center justify-between">
         {/* Avatar Logo */}
         <Link href="/" className="flex items-center">
@@ -49,31 +49,33 @@ export function Navbar() {
           {link("/contact", "Contact")}
         </div>
 
-        {/* Mobile Hamburger Menu */}
-        <button
-          className="md:hidden flex flex-col items-center justify-center w-8 h-8 space-y-1"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={cn(
-              "block w-6 h-0.5 bg-[oklch(0.25_0_0)] transition-all duration-300",
-              isMenuOpen && "rotate-45 translate-y-1.5"
-            )}
-          />
-          <span
-            className={cn(
-              "block w-6 h-0.5 bg-[oklch(0.25_0_0)] transition-all duration-300",
-              isMenuOpen && "opacity-0"
-            )}
-          />
-          <span
-            className={cn(
-              "block w-6 h-0.5 bg-[oklch(0.25_0_0)] transition-all duration-300",
-              isMenuOpen && "-rotate-45 -translate-y-1.5"
-            )}
-          />
-        </button>
+        {/* Mobile Hamburger Menu - Only visible on mobile */}
+        <div className="md:hidden">
+          <button
+            className="flex flex-col items-center justify-center w-8 h-8 space-y-1"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={cn(
+                "block w-6 h-0.5 bg-[oklch(0.25_0_0)] transition-all duration-300",
+                isMenuOpen && "rotate-45 translate-y-1.5"
+              )}
+            />
+            <span
+              className={cn(
+                "block w-6 h-0.5 bg-[oklch(0.25_0_0)] transition-all duration-300",
+                isMenuOpen && "opacity-0"
+              )}
+            />
+            <span
+              className={cn(
+                "block w-6 h-0.5 bg-[oklch(0.25_0_0)] transition-all duration-300",
+                isMenuOpen && "-rotate-45 -translate-y-1.5"
+              )}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

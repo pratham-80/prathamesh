@@ -1,0 +1,78 @@
+/* Safari-specific CSS fixes */
+
+/* Fix for Safari backdrop-blur issues */
+@supports (-webkit-backdrop-filter: blur(12px)) {
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Safari font rendering fixes */
+@supports (-webkit-font-smoothing: antialiased) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Safari button appearance fixes */
+button, input[type="button"], input[type="submit"] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+/* Safari input fixes */
+input, textarea, select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+/* Safari grid and flexbox fallbacks */
+.grid {
+  display: -webkit-grid;
+  display: grid;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Safari transform fixes */
+.transform {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Safari transition fixes */
+.transition-all {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Safari image rendering */
+img {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Safari scroll behavior */
+html {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Safari focus styles */
+*:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Safari placeholder fixes */
+::placeholder {
+  -webkit-text-fill-color: #9ca3af;
+  color: #9ca3af;
+}

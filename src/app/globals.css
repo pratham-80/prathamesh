@@ -120,11 +120,18 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Safari-specific fixes */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   /* Button typography styles */
   button {
     @apply font-[var(--font-sans)] font-semibold uppercase tracking-[0.5px] leading-[1.5];
+    /* Safari button fixes */
+    -webkit-appearance: none;
+    border-radius: 0;
   }
   
   /* DM Serif Display styling - using weight 400 with bold appearance */
@@ -141,5 +148,45 @@
   
   .font-sans {
     font-family: var(--font-sans), sans-serif;
+  }
+  
+  /* Safari-specific input fixes */
+  input, textarea, select {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  
+  /* Safari backdrop-blur support */
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Safari grid fixes */
+  .grid {
+    display: -webkit-grid;
+    display: grid;
+  }
+  
+  /* Safari flexbox fixes */
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  /* Remove blue focus borders from all interactive elements */
+  button:focus,
+  button:focus-visible,
+  a:focus,
+  a:focus-visible,
+  input:focus,
+  input:focus-visible,
+  textarea:focus,
+  textarea:focus-visible,
+  select:focus,
+  select:focus-visible {
+    outline: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
   }
 }

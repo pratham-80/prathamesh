@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -54,13 +52,13 @@ export default function AboutPage() {
               <div className="flex gap-4">
                 <div className="flex-1">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-200">
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-200 bg-white">
                       <Image 
                         src="/images/vidyayatan logo.png" 
                         alt="Vidyayatan Technologies" 
-                        width={48} 
-                        height={48} 
-                        className="w-full h-full object-contain"
+                        width={32} 
+                        height={32} 
+                        className="w-8 h-8 object-contain"
                       />
                     </div>
                     <div className="flex-1">
@@ -157,6 +155,23 @@ export default function AboutPage() {
                 <h2 className="text-3xl md:text-4xl font-[var(--font-serif)] leading-[1.2] mb-8">
                   Outside of Work
                 </h2>
+                
+                {/* Artwork Image */}
+                <div className="mb-8">
+                  <div className="relative w-full max-w-md mx-auto">
+                    <Image 
+                      src="/images/artwork.png" 
+                      alt="Artwork" 
+                      width={400} 
+                      height={400} 
+                      className="w-full h-auto rounded-lg object-cover"
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                    />
+                  </div>
+                </div>
+                
                 <div className="space-y-4 text-[17px] leading-[1.5] text-[oklch(0.25_0_0)] font-[var(--font-sans)] font-normal">
                   <p>
                     When I&apos;m not designing, you&apos;ll find me on night walks through the city, enjoying ice cream 
@@ -167,24 +182,11 @@ export default function AboutPage() {
                     from everyday life – I see design everywhere.
                   </p>
                 </div>
-                
-                {/* Lifestyle Images Placeholder */}
-                <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
-                  <div className="aspect-square bg-gradient-to-br from-[oklch(0.68_0.19_35)]/20 to-[oklch(0.2_0.03_250)]/20 rounded-lg flex items-center justify-center">
-                    <span className="text-[oklch(0.35_0_0)] text-sm">Travel Shot</span>
-                  </div>
-                  <div className="aspect-square bg-gradient-to-br from-[oklch(0.2_0.03_250)]/20 to-[oklch(0.68_0.19_35)]/20 rounded-lg flex items-center justify-center">
-                    <span className="text-[oklch(0.35_0_0)] text-sm">Hobby Photo</span>
-                  </div>
-                  <div className="aspect-square bg-gradient-to-br from-[oklch(0.68_0.19_35)]/20 to-[oklch(0.2_0.03_250)]/20 rounded-lg flex items-center justify-center md:col-span-1 col-span-2">
-                    <span className="text-[oklch(0.35_0_0)] text-sm">Fun Moment</span>
-                  </div>
-                </div>
               </div>
             </div>
 
             {/* Sidebar - 1 column */}
-            <div className="space-y-8">
+            <div className="space-y-8 max-w-xs">
               {/* Key Skills */}
               <div className="bg-white/50 backdrop-blur-sm rounded-lg p-6 border border-gray-100">
                 <h3 className="text-xl font-[var(--font-serif)] leading-[1.2] mb-4 text-[oklch(0.25_0_0)]">
