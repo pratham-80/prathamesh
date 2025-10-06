@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const brand = {
-  accent: "text-[oklch(0.68_0.19_35)]",
+  accent: "text-[#1E65ED]",
   serif: "font-[var(--font-serif)]",
   sans: "font-[var(--font-sans)]",
 }

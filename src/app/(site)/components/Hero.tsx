@@ -17,7 +17,7 @@ export default function Hero() {
           height="24" 
           viewBox="0 0 24 24" 
           fill="none" 
-          className="text-[oklch(0.68_0.19_35)]"
+          className="text-[#1E65ED]"
         >
           <path 
             d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" 
@@ -34,7 +34,7 @@ export default function Hero() {
         <Button asChild variant="secondary" className="px-6">
           <Link href="/about">About Me</Link>
         </Button>
-        <Button asChild className="px-6">
+        <Button asChild className="px-6 rounded-full">
           <Link href="/portfolio">View Portfolio</Link>
         </Button>
       </div>

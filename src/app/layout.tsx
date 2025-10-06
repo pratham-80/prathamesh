@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Poppins } from "next/font/google";
+import { Roboto_Flex, Inter, Poller_One } from "next/font/google";
 import "./globals.css";
 import "./safari-fixes.css";
 import dynamic from "next/dynamic";
+import Footer from "./(site)/components/Footer";
+import CustomCursor from "./(site)/components/CustomCursor";
 import { Analytics } from "@vercel/analytics/next";
 
 // Lazy load components for better performance
 const Navbar = dynamic(() => import("./(site)/components/Navbar"), {
   loading: () => (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b">
-      <div className="max-w-5xl mx-auto px-6 py-4">
+      <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="h-8 bg-gray-200 animate-pulse rounded w-32"></div>
       </div>
     </div>
@@ -17,28 +19,25 @@ const Navbar = dynamic(() => import("./(site)/components/Navbar"), {
   ssr: true
 });
 
-const Footer = dynamic(() => import("./(site)/components/Footer"), {
-  loading: () => (
-    <footer className="bg-gray-50 py-8">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="h-6 bg-gray-200 animate-pulse rounded w-48"></div>
-      </div>
-    </footer>
-  ),
-  ssr: true
-});
 
-const dmSerifDisplay = DM_Serif_Display({
+const robotoFlex = Roboto_Flex({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const poppins = Poppins({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const pollerOne = Poller_One({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -68,9 +67,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${dmSerifDisplay.variable} antialiased`}>        
+      <body className={`${inter.variable} ${robotoFlex.variable} ${pollerOne.variable} antialiased`}>        
         <Navbar />
-        <main className="pt-24">
+        <CustomCursor />
+        <main className="pt-28">
           {children}
           <Analytics />
         </main>

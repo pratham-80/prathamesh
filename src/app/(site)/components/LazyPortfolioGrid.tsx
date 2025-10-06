@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
+import { projects as allProjects, toSlug } from "./projects-data";
+import { motion } from "framer-motion";
 
 const projects = [
   { 
@@ -102,44 +104,42 @@ const projects = [
 export default function LazyPortfolioGrid() {
   const [activeFilter, setActiveFilter] = useState("All");
 
+  const source = allProjects.length ? allProjects : projects;
   const filteredProjects = activeFilter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+    ? source 
+    : source.filter(project => project.category === activeFilter);
 
   return (
-    <>
+    <div className="bg-background overflow-hidden">
       {/* Filter Buttons */}
       <div className="flex justify-center gap-4 mb-12">
         <button
           onClick={() => setActiveFilter("All")}
-          className={`px-6 py-2 rounded-lg font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
+          className={`px-6 py-2 rounded-full font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
             activeFilter === "All"
               ? "bg-orange-500 text-white"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
           }`}
-          style={{borderRadius: '8px'}}
         >
           All
         </button>
         <button
           onClick={() => setActiveFilter("Product")}
-          className={`px-6 py-2 rounded-lg font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
+          className={`px-6 py-2 rounded-full font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
             activeFilter === "Product"
               ? "bg-orange-500 text-white"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
           }`}
-          style={{borderRadius: '8px'}}
         >
           Product
         </button>
         <button
           onClick={() => setActiveFilter("Website")}
-          className={`px-6 py-2 rounded-lg font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
+          className={`px-6 py-2 rounded-full font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
             activeFilter === "Website"
               ? "bg-orange-500 text-white"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
           }`}
-          style={{borderRadius: '8px'}}
         >
           Website
         </button>
@@ -148,37 +148,45 @@ export default function LazyPortfolioGrid() {
       {/* Project Grid */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredProjects.map((project) => (
-          <Link key={project.id} href={project.behanceUrl} target="_blank" rel="noopener noreferrer">
-            <Card className="hover:shadow-lg transition-all duration-300 bg-white group cursor-pointer h-full flex flex-col">
-              <CardContent className="flex flex-col flex-1 space-y-4 p-6">
-                <div className="aspect-[4/3] relative overflow-hidden rounded-md group-hover:scale-105 transition-transform duration-300">
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover" 
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                  />
-                </div>
-                <div className="text-xl font-[var(--font-sans)] font-semibold leading-[1.2] group-hover:text-orange-500 transition-colors duration-300 flex-1">
-                  {project.title}
-                </div>
-                <div className="flex justify-start">
-                  <span className={`px-3 py-1 rounded-full text-xs font-[var(--font-sans)] font-medium leading-[1.5] ${
-                    project.category === "Product" 
-                      ? "bg-amber-100 text-amber-700" 
-                      : "bg-teal-100 text-teal-700"
-                  }`}>
-                    {project.category}
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <Link href={`/${toSlug(project.title)}`}>
+              <Card className="hover:shadow-lg transition-all duration-300 bg-white group cursor-pointer h-full flex flex-col">
+                <CardContent className="flex flex-col flex-1 space-y-4 p-6">
+                  <div className="aspect-[4/3] relative overflow-hidden rounded-md group-hover:scale-105 transition-transform duration-300">
+                    <Image 
+                      src={project.image} 
+                      alt={project.title} 
+                      fill 
+                      className="object-cover" 
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                    />
+                  </div>
+                  <div className="text-xl font-[var(--font-sans)] font-semibold leading-[1.2] group-hover:text-orange-500 transition-colors duration-300 flex-1">
+                    {project.title}
+                  </div>
+                  <div className="flex justify-start">
+                    <span className={`px-3 py-1 rounded-full text-xs font-[var(--font-sans)] font-medium leading-[1.5] ${
+                      project.category === "Product" 
+                        ? "bg-amber-100 text-amber-700" 
+                        : "bg-teal-100 text-teal-700"
+                    }`}>
+                      {project.category}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </motion.div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
