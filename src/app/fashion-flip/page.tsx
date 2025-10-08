@@ -4,6 +4,7 @@ import { getProjectBySlug } from "../(site)/components/projects-data";
 
 export default function FashionFlipPage() {
   const project = getProjectBySlug("fashion-flip");
+  console.log(project);
   if (!project) {
     return (
       <main className="mx-auto max-w-5xl px-6 py-16">
