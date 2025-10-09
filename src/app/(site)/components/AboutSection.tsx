@@ -1,33 +1,24 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 const tools = [
-  {
-    name: "Figma",
-    description: "Collaborative product design system",
-    proficiency: 94,
-  },
-  {
-    name: "Framer",
-    description: "No-code interactive prototyping",
-    proficiency: 92,
-  },
-  {
-    name: "Cursor",
-    description: "AI-assisted design and code handoff",
-    proficiency: 88,
-  },
-  {
-    name: "Plasmic",
-    description: "Visual builder for production sites",
-    proficiency: 86,
-  },
+  { name: "Figma", icon: "/images/white-logos/figma_white.png" },
+  { name: "Framer", icon: "/images/white-logos/framer_white.png" },
+  { name: "Cursor", icon: "/images/white-logos/cursor_white.png" },
+  { name: "Plasmic", icon: "/images/white-logos/plasmic_white.png" },
 ];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 48 },
+  visible: { opacity: 1, y: 0 },
+};
+
+
+const cardIn = {
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -42,7 +33,7 @@ export default function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="bg-background py-32 md:py-40 overflow-hidden"
+      className="bg-background pt-32 md:pt-40 pb-20 md:pb-20 overflow-hidden"
     >
       <div className="mx-auto max-w-6xl w-full px-6">
         <motion.div
@@ -66,57 +57,69 @@ export default function AboutSection() {
           </div>
         </motion.div>
 
-        <motion.div
-          className="mt-16 grid gap-12 lg:grid-cols-[1.1fr_1fr]"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeInUp}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-        >
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="text-xl md:text-2xl leading-relaxed text-[oklch(0.5_0_0)] font-[var(--font-sans)]">
-              I make pixels purposeful, turning ideas into digital experiences that are intuitive and meaningful.
-            </p>
-          </div>
-
-          <div className="space-y-8">
+        {/* Below: two-column layout (left: journey, right: icons) */}
+  <div className="mt-12 grid gap-12 md:gap-16 lg:gap-20 lg:grid-cols-2">
+          {/* Left: journey paragraph (1) */}
+          <motion.div
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, delay: 0, ease: "easeOut" }}
+          >
             <p className="text-base md:text-lg text-black font-[var(--font-sans)] leading-[1.7]">
               I began with a Bachelor of Architecture, where I honed design thinking and collaboration. Curiosity led me into digital design through a UI/UX certification and early UX work. Today, as Product Designer & Manager at Vidyayatan Technologies, I craft impactful platforms, guide teams, and mentor emerging designers.
             </p>
+          </motion.div>
 
-            <motion.div
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-              className="relative mt-6 space-y-4"
-            >
-              {tools.map((tool, index) => (
+          {/* Right: tools cards in a single line, animated in required order (2..5) */}
+          <div>
+            <div className="flex items-center gap-3 md:gap-5">
+              {tools.map((tool, idx) => (
                 <motion.div
                   key={tool.name}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                  className="flex flex-col gap-6 rounded-md bg-[#1E65ED] px-8 py-8 text-white shadow-[0_24px_80px_rgba(30,101,237,0.22)] md:flex-row md:items-center md:justify-between md:py-10 md:sticky md:top-32"
-                  style={{ zIndex: 20 + index * 5 }}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={cardIn}
+                  transition={{ duration: 0.45, delay: 0.1 + idx * 0.1, ease: "easeOut" }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="flex flex-col items-center justify-center rounded-md bg-[#1E65ED] h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24 p-3 shadow-[0_12px_36px_rgba(30,101,237,0.2)]"
+                  title={tool.name}
                 >
-                  <div className="flex-1 space-y-1">
-                    <h3 className="text-2xl md:text-3xl font-semibold font-[var(--font-sans)]">
-                      {tool.name}
-                    </h3>
-                    <p className="text-sm text-white/80 font-[var(--font-sans)]">
-                      {tool.description}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-6 md:pl-6">
-                    <div className="hidden h-12 w-px bg-white/20 md:block" />
-                    <span className="text-3xl md:text-4xl font-bold text-white/60 font-[var(--font-sans)]">
-                      {tool.proficiency}%
-                    </span>
+                  <Image
+                    src={tool.icon}
+                    alt={tool.name}
+                    width={28}
+                    height={28}
+                    unoptimized
+                    loading="lazy"
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      if (img.src.includes("/images/white-logos/")) {
+                        img.src = img.src.replace("/images", "");
+                      }
+                    }}
+                    className="h-5 w-5 md:h-7 md:w-7 lg:h-9 lg:w-9 object-contain"
+                  />
+                  <div className="mt-1 text-[10px] md:text-xs font-medium text-white/90 text-center leading-tight">
+                    {tool.name}
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
+        </div>
+
+        {/* Tagline appears last (6) */}
+        <motion.div
+          className="mt-12"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+        >
+          <p className="text-xl md:text-2xl text-center max-w-3xl mx-auto leading-relaxed text-[oklch(0.5_0_0)] font-[var(--font-sans)]">
+            I make pixels purposeful, turning ideas into digital experiences that are intuitive and meaningful.
+          </p>
         </motion.div>
       </div>
     </section>

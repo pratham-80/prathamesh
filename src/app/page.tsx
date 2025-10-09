@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -54,6 +54,8 @@ export default function Home() {
   };
   const projectsRef = useRef<HTMLElement | null>(null);
   const experienceRef = useRef<HTMLElement | null>(null);
+  const marqueeTopRef = useRef<HTMLDivElement | null>(null);
+  const marqueeBottomRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: projectsScrollProgress } = useScroll({
     target: projectsRef,
     offset: ["start end", "end start"]
@@ -82,6 +84,10 @@ export default function Home() {
     [0, 1],
     ["48px", "48px"]
   );
+
+  // In-view detection for marquee rows to fade in/out
+  const marqueeTopInView = useInView(marqueeTopRef, { once: false, amount: 0.2 });
+  const marqueeBottomInView = useInView(marqueeBottomRef, { once: false, amount: 0.2 });
 
   const professionalProjects = [
     // {
@@ -203,7 +209,7 @@ export default function Home() {
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                   style={{ x: imageX, y: imageY }}
                 >
-                  <div className="relative w-[4rem] h-[6rem] sm:w-[5rem] sm:h-[7.5rem] md:w-[8rem] md:h-[12rem] lg:w-[7.5rem] lg:h-[11.25rem] rounded-full overflow-hidden shadow-[0_18px_46px_rgba(30,101,237,0.25)]">
+                  <div className="relative w-[5.75rem] h-[8.6rem] sm:w-[6.5rem] sm:h-[9.75rem] md:w-[9.25rem] md:h-[13.875rem] lg:w-[7.5rem] lg:h-[11.25rem] rounded-full overflow-hidden shadow-[0_18px_46px_rgba(30,101,237,0.25)]">
                     <Image
                       src="/images/profile.png"
                       alt="Prathamesh Ingale portrait"
@@ -247,7 +253,7 @@ export default function Home() {
       
 
       {/* Work Section */}
-      <section id="work" ref={projectsRef} className="pt-48 pb-28 bg-background overflow-hidden">
+      <section id="work" ref={projectsRef} className="pt-28 md:pt-32 pb-28 bg-background overflow-hidden">
         <div className="mx-auto max-w-6xl w-full px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
@@ -471,7 +477,13 @@ export default function Home() {
       {/* Tools marquee - directly below experience */}
       <section className="bg-background leading-none overflow-hidden">
         {/* top row right->left */}
-        <div className="relative marquee m-0 leading-none">
+        <motion.div
+          ref={marqueeTopRef}
+          className="relative marquee m-0 leading-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: marqueeTopInView ? 1 : 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div
             className="pointer-events-none absolute inset-y-0 left-0 w-24"
             style={{
@@ -501,9 +513,15 @@ export default function Home() {
             <span className="text-gray-300 text-3xl align-baseline">✦</span>
             <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Plasmic</span>
           </div>
-        </div>
+        </motion.div>
         {/* bottom row left->right */}
-        <div className="relative marquee m-0 leading-none">
+        <motion.div
+          ref={marqueeBottomRef}
+          className="relative marquee m-0 leading-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: marqueeBottomInView ? 1 : 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div
             className="pointer-events-none absolute inset-y-0 left-0 w-24"
             style={{
@@ -533,7 +551,7 @@ export default function Home() {
             <span className="text-gray-300 text-3xl align-baseline">✦</span>
             <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Plasmic</span>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       
@@ -630,14 +648,22 @@ export default function Home() {
                     style={{ borderRadius: "16px" }}
                   />
                 </div>
-                <Button 
-                  type="submit" 
-                  disabled={loading} 
-                  className="h-14 font-semibold bg-[#1768FF] hover:bg-[#1768FF]/90 text-white"
-                  style={{ borderRadius: "18px", width: "100%", maxWidth: "320px", margin: "0 auto" }}
+                <motion.div 
+                  className="flex justify-center"
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                 >
-                  {loading ? "Sending..." : "Send"}
-                </Button>
+                  <Button 
+                    type="submit" 
+                    disabled={loading} 
+                    className="h-14 font-semibold bg-[#1768FF] hover:bg-[#1768FF]/90 text-white w-full sm:w-auto px-12 md:px-16 min-w-[240px] md:min-w-[280px] shadow-[0_14px_30px_rgba(23,104,255,0.28)]"
+                    style={{ borderRadius: "20px" }}
+                  >
+                    {loading ? "Sending..." : "Send"}
+                  </Button>
+                </motion.div>
               </form>
 
               {message && (

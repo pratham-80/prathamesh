@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   title: "Prathamesh Ingale",
   description: "Personal portfolio",
   icons: {
-    icon: '/apple-icon.png',
-    shortcut: '/apple-icon.png',
-    apple: '/apple-icon.png',
+    icon: '/apple-icon.jpg',
+    shortcut: '/apple-icon.jpg',
+    apple: '/apple-icon.jpg',
   },
   viewport: {
     width: 'device-width',
