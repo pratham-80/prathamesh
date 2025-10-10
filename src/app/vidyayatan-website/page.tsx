@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getProjectBySlug } from "../(site)/components/projects-data";
+import Reveal from "../(site)/components/Reveal";
 
 export default function VidyayatanPage() {
   const project = getProjectBySlug("vidyayatan-website");
@@ -30,7 +31,7 @@ export default function VidyayatanPage() {
   return (
     <main className="bg-background min-h-screen">
       <div className="mx-auto max-w-6xl px-6 py-16 space-y-12">
-        <div className="flex flex-col items-center gap-4">
+        <Reveal className="flex flex-col items-center gap-4">
           <Link
             href="/#work"
             className="self-start flex items-center gap-2 text-[oklch(0.4_0_0)] hover:text-[#1E65ED] transition-colors"
@@ -40,7 +41,7 @@ export default function VidyayatanPage() {
             </span>
             <span className="text-sm font-medium uppercase tracking-[0.24em]">Back</span>
           </Link>
-          <h1 className="text-center text-4xl md:text-6xl font-[var(--font-serif)] font-bold tracking-tight text-[oklch(0.18_0_0)]">
+          <h1 className="text-center text-4xl md:text-6xl font-serif font-bold tracking-tight text-[oklch(0.18_0_0)]">
             {project.title}
           </h1>
           <span
@@ -49,9 +50,9 @@ export default function VidyayatanPage() {
           >
             ✦
           </span>
-        </div>
+        </Reveal>
 
-        <section className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-start">
+  <Reveal className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-start">
           <div className="grid grid-cols-1 gap-8 text-[oklch(0.45_0_0)]">
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-1">
@@ -102,16 +103,16 @@ export default function VidyayatanPage() {
               partners, thereby expanding the photographer’s professional reach and opportunities.
             </p>
           </div>
-        </section>
+        </Reveal>
 
-        <div className="my-8">
+        <Reveal className="my-8">
           <div className="h-px w-full bg-[oklch(0.9_0_0)]" />
           <h3 className="mt-6 text-xl md:text-2xl font-semibold text-[oklch(0.2_0_0)]">
             Deep Dive Into the Project
           </h3>
-        </div>
+        </Reveal>
 
-        <section className="grid gap-6 md:grid-cols-2 md:gap-8">
+  <Reveal className="grid gap-6 md:grid-cols-2 md:gap-8">
           {caseStudies.map((item) => (
             <Link
               key={item.href}
@@ -129,7 +130,7 @@ export default function VidyayatanPage() {
               />
             </Link>
           ))}
-        </section>
+        </Reveal>
       </div>
     </main>
   );

@@ -73,7 +73,7 @@ export default function AboutSection() {
 
           {/* Right: tools cards in a single line, animated in required order (2..5) */}
           <div>
-            <div className="flex items-center gap-3 md:gap-5">
+            <div className="flex items-center justify-center md:justify-start gap-3 md:gap-5">
               {tools.map((tool, idx) => (
                 <motion.div
                   key={tool.name}

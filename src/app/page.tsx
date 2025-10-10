@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,6 +35,9 @@ export default function Home() {
     email: "",
     message: ""
   });
+  // Ensure content is visible before motion hydrates (prevents blank hero on back navigation)
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   // Hero image cursor-follow motion
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -173,16 +176,16 @@ export default function Home() {
       >
         <div className="mx-auto max-w-4xl text-center w-full px-2 sm:px-4">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
+            initial={mounted ? { opacity: 0, y: 60 } : { opacity: 1, y: 0 }}
+            whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
+            viewport={mounted ? { once: false, amount: 0.2 } : undefined}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col items-center gap-24 sm:gap-20 md:gap-[160px]"
           >
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              initial={mounted ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+              whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
+              viewport={mounted ? { once: false, amount: 0.2 } : undefined}
               transition={{ duration: 0.6, ease: "easeOut", delay: 1.2 }}
               className="uppercase tracking-[0.45em] text-xs md:text-sm text-[oklch(0.35_0_0)] mb-2 sm:-mb-12 md:-mb-16"
             >
@@ -192,24 +195,24 @@ export default function Home() {
             <div className="relative flex flex-col items-center w-full max-w-full overflow-visible">
               <div className="relative w-full px-2 sm:px-4 md:px-8">
                 <motion.h1 
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.2 }}
+                  initial={mounted ? { opacity: 0, y: 30 } : { opacity: 1, y: 0 }}
+                  whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
+                  viewport={mounted ? { once: false, amount: 0.2 } : undefined}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-[48px] sm:text-[60px] md:text-[100px] lg:text-[128px] font-[var(--font-display)] font-bold uppercase tracking-[0] leading-[0.8] text-[#1E65ED]"
+                  className="text-[48px] sm:text-[60px] md:text-[100px] lg:text-[128px] font-serif font-bold uppercase tracking-[0] leading-[0.8] text-primary"
                 >
                   <span className="block">Prathamesh</span>
                   <span className="block">Ingale</span>
                 </motion.h1>
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: false, amount: 0.2 }}
+                  initial={mounted ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
+                  whileInView={mounted ? { opacity: 1, scale: 1 } : undefined}
+                  viewport={mounted ? { once: false, amount: 0.2 } : undefined}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                   style={{ x: imageX, y: imageY }}
                 >
-                  <div className="relative w-[5.75rem] h-[8.6rem] sm:w-[6.5rem] sm:h-[9.75rem] md:w-[9.25rem] md:h-[13.875rem] lg:w-[7.5rem] lg:h-[11.25rem] rounded-full overflow-hidden shadow-[0_18px_46px_rgba(30,101,237,0.25)]">
+                  <div className="relative w-[5.75rem] h-[8.6rem] sm:w-[6.5rem] sm:h-[9.75rem] md:w-[9.25rem] md:h-[13.875rem] lg:w-[7.5rem] lg:h-[11.25rem] rounded-full overflow-hidden shadow-[0_18px_46px_rgba(224,241,31,0.25)]">
                     <Image
                       src="/images/profile.png"
                       alt="Prathamesh Ingale portrait"
@@ -224,20 +227,20 @@ export default function Home() {
 
             <div className="flex flex-col items-center gap-6 sm:gap-8 mt-2 sm:-mt-12 md:-mt-16">
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: false, amount: 0.2 }}
+                  initial={mounted ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
+                  whileInView={mounted ? { opacity: 1, scale: 1 } : undefined}
+                  viewport={mounted ? { once: false, amount: 0.2 } : undefined}
                   transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
                   className="w-12 h-12 flex items-center justify-center"
                 >
-                  <span className="text-[30px] text-[#1E65ED] drop-shadow-[0_8px_20px_rgba(30,101,237,0.28)]" aria-hidden="true">✦</span>
+                  <span className="text-[30px] text-primary drop-shadow-[0_8px_20px_rgba(224,241,31,0.28)]" aria-hidden="true">✦</span>
                 </motion.div>
               <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
+                initial={mounted ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+                whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
+                viewport={mounted ? { once: false, amount: 0.2 } : undefined}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
-                className="text-lg md:text-xl text-[oklch(0.35_0_0)] font-[var(--font-sans)] max-w-2xl text-center"
+                className="text-lg md:text-xl text-muted-foreground font-sans max-w-2xl text-center"
               >
                 I&apos;m Prathamesh Ingale — a product designer crafting digital products that balance creativity, logic, and usability.
               </motion.p>
@@ -274,7 +277,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.2 }}
-                className="text-[24px] md:text-[40px] font-[var(--font-display)] font-bold uppercase tracking-[0] leading-tight text-[#1E65ED]"
+                className="text-[24px] md:text-[40px] font-serif font-bold uppercase tracking-[0] leading-tight text-primary"
               >
                 Projects
               </motion.h2>
@@ -283,11 +286,11 @@ export default function Home() {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: false, amount: 0.2 }}
-                className="origin-left flex-1 h-[4px] bg-[oklch(0.82_0.01_250)] relative"
+                className="origin-left flex-1 h-[4px] bg-border/40 relative"
               >
                 <motion.span
                   style={{ left: projectsIndicatorLeft, width: projectsIndicatorWidth }}
-                  className="absolute top-0 h-full bg-[#1E65ED]"
+                  className="absolute top-0 h-full bg-primary"
                 />
               </motion.div>
             </motion.div>
@@ -312,7 +315,7 @@ export default function Home() {
                       viewport={{ amount: 0.2, once: false }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       whileHover={{ scale: 1.02 }}
-                      className="group relative overflow-hidden rounded-2xl h-64 md:h-80 shadow-[0_18px_40px_rgba(30,101,237,0.08)]"
+                      className="group relative overflow-hidden rounded-2xl h-64 md:h-80 shadow-[0_18px_40px_rgba(224,241,31,0.08)]"
                     >
                       <div className="absolute inset-0">
                         <Image
@@ -334,7 +337,7 @@ export default function Home() {
                           loading="lazy"
                         />
                       </div>
-                      <div className="absolute bottom-0 left-0 bg-[#1E65ED] text-white text-xs md:text-sm font-[var(--font-sans)] font-semibold px-4 py-2 rounded-tr-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                      <div className="absolute bottom-0 left-0 bg-primary text-primary-foreground text-xs md:text-sm font-sans font-semibold px-4 py-2 rounded-tr-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                         {project.title}
                       </div>
                     </motion.div>
@@ -349,10 +352,10 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             viewport={{ once: false, amount: 0.2 }}
-            className="text-center text-sm sm:text-base text-[oklch(0.35_0_0)] font-[var(--font-sans)]"
+            className="text-center text-sm sm:text-base text-muted-foreground font-sans"
           >
             <span>Check out more projects on my </span>
-            <Link href="https://www.behance.net/prathameshingale" target="_blank" rel="noreferrer" className="text-[#1E65ED] underline-offset-4 hover:underline">
+            <Link href="https://www.behance.net/prathameshingale" target="_blank" rel="noreferrer" className="text-primary underline-offset-4 hover:underline">
               Behance profile
             </Link>
             .
