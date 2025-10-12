@@ -33,9 +33,9 @@ export default function LazyImage({
   };
 
   const defaultFallback = (
-    <div className={`bg-gray-200 animate-pulse ${className}`}>
+    <div className={`bg-muted animate-pulse ${className}`}>
       <div className="w-full h-full flex items-center justify-center">
-        <div className="w-8 h-8 bg-gray-300 rounded-full animate-pulse"></div>
+        <div className="w-8 h-8 bg-muted-foreground/30 rounded-full animate-pulse"></div>
       </div>
     </div>
   );

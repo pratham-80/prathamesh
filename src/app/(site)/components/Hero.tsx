@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="text-center space-y-6">
       <h1 
-        className="text-6xl md:text-8xl tracking-tight font-[var(--font-sans)] font-semibold text-[oklch(0.2_0.03_250)] lowercase leading-[1.2]"
+  className="text-6xl md:text-8xl tracking-tight font-semibold text-foreground lowercase leading-[1.2]"
         style={{WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale'}}
       >
         hey there!
@@ -17,7 +17,7 @@ export default function Hero() {
           height="24" 
           viewBox="0 0 24 24" 
           fill="none" 
-          className="text-[#1E65ED]"
+          className="text-primary"
         >
           <path 
             d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" 
@@ -26,7 +26,7 @@ export default function Hero() {
         </svg>
       </div>
       
-      <p className="text-xl md:text-2xl text-balance text-center font-[var(--font-sans)] text-[oklch(0.25_0_0)] leading-[1.5] font-normal">
+  <p className="text-xl md:text-2xl text-balance text-center text-foreground/80 leading-[1.5]">
         I&apos;m Prathamesh Ingale, a Product Designer passionate about creating meaningful digital experiences.
       </p>
       

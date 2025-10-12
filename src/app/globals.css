@@ -45,16 +45,15 @@
 
 :root {
   --radius: 0.625rem;
-  /* Off-white background */
+  /* Light theme: grey background + blue primary */
   --background: #F8F9FB;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  /* Warm coral / red-orange accent */
-  --primary: #1E65ED;
-  --primary-foreground: oklch(0.98 0 0);
+  --primary: #1E65ED; /* blue */
+  --primary-foreground: #FFFFFF;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -73,45 +72,49 @@
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: #1E65ED;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Marquee separator diamond color: keep identical across themes */
+  --carousel-separator: #B3B3B3;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --background: #121212; /* near-black */
+  --foreground: #FFFFFF; /* white text */
+  --card: #1A1A1A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1A;
+  --popover-foreground: #FFFFFF;
+  --primary: #E0F11F; /* yellow accent */
+  --primary-foreground: #121212; /* text on yellow */
+  --secondary: #1E1E1E;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1E1E1E;
+  --muted-foreground: #B3B3B3;
+  --accent: #1E1E1E;
+  --accent-foreground: #FFFFFF;
+  --destructive: #ff5252;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --ring: #3F3F3F;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: #1A1A1A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #E0F11F;
+  --sidebar-primary-foreground: #121212;
+  --sidebar-accent: #1E1E1E;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #2A2A2A;
+  --sidebar-ring: #3F3F3F;
+  /* Keep the same grey as light for marquee separators */
+  --carousel-separator: #B3B3B3;
 }
 
 @layer base {
@@ -121,10 +124,15 @@
     overflow-x: hidden;
   }
   * {
-    @apply border-border outline-ring/50;
+    /* Tailwind-like defaults expressed as CSS for typecheck tools */
+    border-color: var(--border);
+    outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
   }
   body {
-    @apply bg-background text-foreground cursor-none;
+    background-color: var(--background);
+    color: var(--foreground);
+    cursor: none;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     width: 100%;
     max-width: 100vw;
     overflow-x: hidden;
@@ -133,15 +141,25 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+  
+  /* Ensure all text defaults to foreground color in dark mode */
+  .dark {
+    color: var(--foreground);
+  }
   /* Keep native cursor for text inputs/textareas to avoid usability issues */
   input, textarea { cursor: text; }
   a, button, [role="button"], .cursor-pointer { cursor: none; }
   
   /* Button typography styles */
   button {
-    @apply font-[var(--font-sans)] font-semibold uppercase tracking-[0.5px] leading-[1.5];
+    font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
     /* Safari button fixes */
     -webkit-appearance: none;
+    appearance: none;
     border-radius: 0;
   }
   
@@ -164,6 +182,7 @@
   /* Safari-specific input fixes */
   input, textarea, select {
     -webkit-appearance: none;
+    appearance: none;
     border-radius: 0;
   }
   
@@ -224,4 +243,33 @@
   .marquee-wide { width: 200%; }
   .animate-marquee-left { animation: marquee-left 28s linear infinite; }
   .animate-marquee-right { animation: marquee-right 28s linear infinite; }
+
+  /* Utility class to apply display font from CSS variable */
+  .font-display {
+    font-family: var(--font-display), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  /* Utility for marquee separator color (same in both themes) */
+  .text-carousel-separator { color: var(--carousel-separator); }
+
+  /* Edge fade utilities for marquees (theme-aware) */
+  .fade-edge-left {
+    background: linear-gradient(90deg, var(--background) 0%, transparent 100%);
+  }
+  .fade-edge-right {
+    background: linear-gradient(270deg, var(--background) 0%, transparent 100%);
+  }
+
+  /* Dark-only light black overlay utility for media cards */
+  .dark .card-dark-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.22);
+    pointer-events: none;
+    transition: background 200ms ease;
+  }
+  .dark .card-dark-overlay:hover::after {
+    background: rgba(0, 0, 0, 0.28);
+  }
 }

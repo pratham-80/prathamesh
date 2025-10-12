@@ -187,13 +187,13 @@ export default function Home() {
               whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
               viewport={mounted ? { once: false, amount: 0.2 } : undefined}
               transition={{ duration: 0.6, ease: "easeOut", delay: 1.2 }}
-              className="uppercase tracking-[0.45em] text-xs md:text-sm text-[oklch(0.35_0_0)] mb-2 sm:-mb-12 md:-mb-16"
+              className="uppercase tracking-[0.45em] text-xs md:text-sm text-foreground mb-2 sm:-mb-12 md:-mb-16"
             >
               Design is the only constant
             </motion.p>
 
             <div className="relative flex flex-col items-center w-full max-w-full overflow-visible">
-              <div className="relative w-full px-2 sm:px-4 md:px-8">
+              <div className="relative w-full md:w-fit md:mx-auto px-2 sm:px-4">
                 <motion.h1 
                   initial={mounted ? { opacity: 0, y: 30 } : { opacity: 1, y: 0 }}
                   whileInView={mounted ? { opacity: 1, y: 0 } : undefined}
@@ -304,7 +304,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-20"
           >
-            <div className="grid gap-6 md:gap-8 md:grid-cols-2">
+            <div className="grid gap-6 md:gap-8 lg:grid-cols-2">
               {professionalProjects.map((project, index) => {
                 const slug = toSlug(project.title);
                 return (
@@ -385,7 +385,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.2 }}
-                className="text-[24px] md:text-[40px] font-[var(--font-display)] font-bold uppercase tracking-[0] leading-tight text-[#1E65ED]"
+                className="text-[24px] md:text-[40px] font-serif font-bold uppercase tracking-[0] leading-tight text-primary"
               >
                 Experience
             </motion.h2>
@@ -394,11 +394,11 @@ export default function Home() {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: false, amount: 0.2 }}
-                className="origin-left flex-1 h-[4px] bg-[oklch(0.82_0.01_250)] relative"
+                className="origin-left flex-1 h-[4px] bg-[oklch(0.88_0.01_250)] dark:bg-foreground/20 relative"
               >
                 <motion.span
                   style={{ left: experienceIndicatorLeft, width: experienceIndicatorWidth }}
-                  className="absolute top-0 h-full bg-[#1E65ED]"
+                  className="absolute top-0 h-full bg-primary"
                 />
               </motion.div>
             </motion.div>
@@ -413,22 +413,22 @@ export default function Home() {
             className="grid md:grid-cols-2 gap-x-16 gap-y-20"
           >
             {/* Row 1 */}
-            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-gray-200 md:border-b-0 md:pr-8">
-              <h3 className="text-xl md:text-2xl font-[var(--font-sans)] font-semibold text-[oklch(0.2_0.03_250)]">Product Designer & Product Manager</h3>
-              <div className="text-gray-500 font-medium font-[var(--font-sans)]">Vidyayatan Technologies</div>
-              <div className="text-sm text-gray-400 font-[var(--font-sans)]">May 2024 - Present</div>
-              <p className="text-base text-gray-700 leading-relaxed font-[var(--font-sans)] max-w-[60ch]">
+            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-border md:border-b-0 dark:border-b-0 md:pr-8">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground">Product Designer & Product Manager</h3>
+              <div className="text-foreground font-medium">Vidyayatan Technologies</div>
+              <div className="text-sm text-foreground">May 2024 - Present</div>
+              <p className="text-base text-foreground leading-relaxed max-w-[60ch]">
                 I have designed and managed digital platforms across agri-tech and ed-tech, crafting user flows,
                 product structures, and UI screens. My work includes an LMS and Assessment Management system for
                 Shri Saidas Classes and Vacademy Access, a comprehensive assessment platform for coaching
                 institutes, schools, universities, and corporates.
               </p>
             </motion.div>
-            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-gray-200 md:border-b-0 md:pl-8">
-              <h3 className="text-xl md:text-2xl font-[var(--font-sans)] font-semibold text-[oklch(0.2_0.03_250)]">UI/UX Design Intern</h3>
-              <div className="text-gray-500 font-medium font-[var(--font-sans)]">Technokeens</div>
-              <div className="text-sm text-gray-400 font-[var(--font-sans)]">Feb 2024 - Apr 2024</div>
-              <p className="text-base text-gray-700 leading-relaxed font-[var(--font-sans)] max-w-[60ch]">
+            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-border md:border-b-0 dark:border-b-0 md:pl-8">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground">UI/UX Design Intern</h3>
+              <div className="text-foreground font-medium">Technokeens</div>
+              <div className="text-sm text-foreground">Feb 2024 - Apr 2024</div>
+              <p className="text-base text-foreground leading-relaxed max-w-[60ch]">
                 I redesigned the company&apos;s website and focused on designing the UI for a Doctor&apos;s Clinic Management App.
                 I created user flows, wireframes, and high-fidelity screens to enhance appointment scheduling, patient
                 records, and billing processes, ensuring a seamless experience for doctors and staff.
@@ -436,14 +436,14 @@ export default function Home() {
             </motion.div>
 
             {/* Divider between rows */}
-            <div className="hidden md:block md:col-span-2 h-px bg-gray-200" />
+            <div className="hidden md:block md:col-span-2 h-px bg-border" />
 
             {/* Row 2 */}
             <motion.div variants={fadeInUp} className="space-y-2 text-left md:pr-8">
-              <h3 className="text-xl md:text-2xl font-[var(--font-sans)] font-semibold text-[oklch(0.2_0.03_250)]">Architect</h3>
-              <div className="text-gray-500 font-medium font-[var(--font-sans)]">Pragrup, Environ Planners</div>
-              <div className="text-sm text-gray-400 font-[var(--font-sans)]">Aug 2021 - Dec 2023</div>
-              <p className="text-base text-gray-700 leading-relaxed font-[var(--font-sans)] max-w-[60ch]">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground">Architect</h3>
+              <div className="text-foreground font-medium">Pragrup, Environ Planners</div>
+              <div className="text-sm text-foreground">Aug 2021 - Dec 2023</div>
+              <p className="text-base text-foreground leading-relaxed max-w-[60ch]">
                 I served as a junior architect at Pragrup, and Environ Planners. I contributed to various architectural
                 and interior projects, gaining valuable experience in design execution and teamwork.
               </p>
@@ -460,17 +460,17 @@ export default function Home() {
             className="py-8 md:py-10 mt-16"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 text-center">
-              <motion.div variants={fadeInUp} className="py-6 md:py-0 md:border-r md:border-gray-200">
-                <div className="text-4xl font-bold text-[#2563EB]">5</div>
-                <div className="mt-2 text-base font-medium text-[#2563EB]">Products Designed</div>
+              <motion.div variants={fadeInUp} className="py-6 md:py-0 md:border-r md:border-border">
+                <div className="text-4xl font-bold text-primary">5</div>
+                <div className="mt-2 text-base font-medium text-primary">Products Designed</div>
               </motion.div>
-              <motion.div variants={fadeInUp} className="py-6 md:py-0 md:border-r md:border-gray-200">
-                <div className="text-4xl font-bold text-[#2563EB]">6</div>
-                <div className="mt-2 text-base font-medium text-[#2563EB]">Satisfied Clients</div>
+              <motion.div variants={fadeInUp} className="py-6 md:py-0 md:border-r md:border-border">
+                <div className="text-4xl font-bold text-primary">6</div>
+                <div className="mt-2 text-base font-medium text-primary">Satisfied Clients</div>
           </motion.div>
               <motion.div variants={fadeInUp} className="py-6 md:py-0">
-                <div className="text-4xl font-bold text-[#2563EB]">4</div>
-                <div className="mt-2 text-base font-medium text-[#2563EB]">Client Websites</div>
+                <div className="text-4xl font-bold text-primary">4</div>
+                <div className="mt-2 text-base font-medium text-primary">Client Websites</div>
               </motion.div>
             </div>
           </motion.div>
@@ -487,34 +487,24 @@ export default function Home() {
           animate={{ opacity: marqueeTopInView ? 1 : 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-24"
-            style={{
-              background: "linear-gradient(90deg, rgba(248,249,251,1) 0%, rgba(248,249,251,0.2) 100%)"
-            }}
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-24"
-            style={{
-              background: "linear-gradient(270deg, rgba(248,249,251,1) 0%, rgba(248,249,251,0.2) 100%)"
-            }}
-          />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-40 z-10 fade-edge-left" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-40 z-10 fade-edge-right" />
           <div className="marquee-track marquee-wide animate-marquee-left" aria-hidden="true">
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Figma</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Framer</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Cursor</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Plasmic</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
             {/* duplicate for seamless loop */}
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Figma</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Framer</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Cursor</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Plasmic</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
           </div>
         </motion.div>
         {/* bottom row left->right */}
@@ -525,34 +515,24 @@ export default function Home() {
           animate={{ opacity: marqueeBottomInView ? 1 : 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-24"
-            style={{
-              background: "linear-gradient(90deg, rgba(248,249,251,1) 0%, rgba(248,249,251,0.2) 100%)"
-            }}
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-24"
-            style={{
-              background: "linear-gradient(270deg, rgba(248,249,251,1) 0%, rgba(248,249,251,0.2) 100%)"
-            }}
-          />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-40 z-10 fade-edge-left" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-40 z-10 fade-edge-right" />
           <div className="marquee-track marquee-wide animate-marquee-right" aria-hidden="true">
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Figma</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Framer</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Cursor</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Plasmic</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
             {/* duplicate */}
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Figma</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Framer</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Cursor</span>
-            <span className="text-gray-300 text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-[var(--font-sans)] font-bold uppercase tracking-[0] text-[#1E65ED]">Plasmic</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
           </div>
         </motion.div>
       </section>
@@ -565,16 +545,16 @@ export default function Home() {
           {/* Title + line */}
           <motion.div className="mb-16" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.6 }}>
             <div className="flex items-center gap-6">
-              <h2 className="text-[24px] md:text-[40px] font-[var(--font-display)] font-bold uppercase tracking-[0] leading-tight text-[#1E65ED]">
+              <h2 className="text-[24px] md:text-[40px] font-serif font-bold uppercase tracking-[0] leading-tight text-primary">
                 CONTACT
               </h2>
-              <div className="flex-1 h-[4px] bg-[oklch(0.82_0.01_250)] relative">
-                <span className="absolute right-0 top-0 h-full w-8 bg-[#1E65ED]" />
+              <div className="flex-1 h-[4px] bg-foreground/10 dark:bg-foreground/20 relative">
+                <span className="absolute right-0 top-0 h-full w-8 bg-primary" />
               </div>
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div className="grid gap-16 items-start lg:grid-cols-2">
             {/* Left content (unchanged text/content) */}
             <motion.div
               initial={{ opacity: 0, x: -60 }}
@@ -584,15 +564,15 @@ export default function Home() {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-[var(--font-serif)] text-[oklch(0.2_0.03_250)] mb-4">Get in Touch</h3>
-                <p className="text-[oklch(0.35_0_0)] font-[var(--font-sans)] leading-[1.5] mb-6">
+                <h3 className="text-2xl font-serif text-foreground mb-4">Get in Touch</h3>
+                <p className="text-foreground/80 leading-[1.5] mb-6">
                   I&apos;m always interested in new opportunities and collaborations. 
                   Whether you have a project in mind or just want to say hello, I&apos;d love to hear from you.
                 </p>
                 <div className="space-y-4">
                   <a 
                     href="mailto:ingleprathmesh80@gmail.com" 
-                    className="flex items-center gap-3 text-[#1E65ED] hover:text-[#1E65ED] transition-colors"
+                    className="flex items-center gap-3 text-primary hover:opacity-90 transition-colors"
                   >
                     <Mail size={20} />
                     <span>ingleprathmesh80@gmail.com</span>
@@ -619,7 +599,7 @@ export default function Home() {
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required 
-                      className="mt-2 bg-[#E5E5E5] placeholder-gray-500 text-[oklch(0.2_0.03_250)] border-0 focus:ring-0 focus:outline-none px-4 py-3"
+                      className="mt-2 bg-input placeholder:text-muted-foreground text-foreground border-0 focus:ring-0 focus:outline-none px-4 py-3"
                       style={{ borderRadius: "16px" }}
                     />
                   </div>
@@ -632,7 +612,7 @@ export default function Home() {
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required 
-                      className="mt-2 bg-[#E5E5E5] placeholder-gray-500 text-[oklch(0.2_0.03_250)] border-0 focus:ring-0 focus:outline-none px-4 py-3"
+                      className="mt-2 bg-input placeholder:text-muted-foreground text-foreground border-0 focus:ring-0 focus:outline-none px-4 py-3"
                       style={{ borderRadius: "16px" }}
                     />
                   </div>
@@ -647,7 +627,7 @@ export default function Home() {
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required 
-                    className="mt-2 bg-[#E5E5E5] placeholder-gray-500 text-[oklch(0.2_0.03_250)] border-0 focus:ring-0 focus:outline-none px-4 py-4"
+                    className="mt-2 bg-input placeholder:text-muted-foreground text-foreground border-0 focus:ring-0 focus:outline-none px-4 py-4"
                     style={{ borderRadius: "16px" }}
                   />
                 </div>
@@ -661,7 +641,7 @@ export default function Home() {
                   <Button 
                     type="submit" 
                     disabled={loading} 
-                    className="h-14 font-semibold bg-[#1768FF] hover:bg-[#1768FF]/90 text-white w-full sm:w-auto px-12 md:px-16 min-w-[240px] md:min-w-[280px] shadow-[0_14px_30px_rgba(23,104,255,0.28)]"
+                    className="h-14 font-semibold bg-primary hover:opacity-90 text-primary-foreground w-full sm:w-auto px-12 md:px-16 min-w-[240px] md:min-w-[280px] shadow-[0_14px_30px_rgba(23,104,255,0.28)] dark:shadow-[0_14px_30px_rgba(224,241,31,0.28)]"
                     style={{ borderRadius: "20px" }}
                   >
                     {loading ? "Sending..." : "Send"}

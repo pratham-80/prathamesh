@@ -74,8 +74,8 @@ export default function CustomCursor() {
         <div
           className={
             "-translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-all duration-150 " +
-            ((isInteractive || isBlue) ? "border-white " : "border-[#1E65ED] ") +
-            (isInteractive ? "w-8 h-8 bg-[#1E65ED]/10" : "w-4 h-4 bg-[#1E65ED]/10")
+            ((isInteractive || isBlue) ? "border-white " : "border-primary ") +
+            (isInteractive ? "w-8 h-8 bg-primary/10" : "w-4 h-4 bg-primary/10")
           }
         />
       </motion.div>

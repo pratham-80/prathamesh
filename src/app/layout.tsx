@@ -10,9 +10,9 @@ import { Analytics } from "@vercel/analytics/next";
 // Lazy load components for better performance
 const Navbar = dynamic(() => import("./(site)/components/Navbar"), {
   loading: () => (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-sm border-b border-border">
       <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="h-8 bg-gray-200 animate-pulse rounded w-32"></div>
+        <div className="h-8 bg-muted animate-pulse rounded w-32"></div>
       </div>
     </div>
   ),

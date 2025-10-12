@@ -115,38 +115,38 @@ export default function LazyPortfolioGrid() {
       <div className="flex justify-center gap-4 mb-12">
         <button
           onClick={() => setActiveFilter("All")}
-          className={`px-6 py-2 rounded-full font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
+          className={`px-6 py-2 rounded-full font-medium leading-[1.5] transition-all duration-300 normal-case ${
             activeFilter === "All"
-              ? "bg-orange-500 text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              ? "bg-primary text-primary-foreground"
+              : "bg-secondary text-muted-foreground hover:bg-muted"
           }`}
         >
           All
         </button>
         <button
           onClick={() => setActiveFilter("Product")}
-          className={`px-6 py-2 rounded-full font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
+          className={`px-6 py-2 rounded-full font-medium leading-[1.5] transition-all duration-300 normal-case ${
             activeFilter === "Product"
-              ? "bg-orange-500 text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              ? "bg-primary text-primary-foreground"
+              : "bg-secondary text-muted-foreground hover:bg-muted"
           }`}
         >
           Product
         </button>
         <button
           onClick={() => setActiveFilter("Website")}
-          className={`px-6 py-2 rounded-full font-[var(--font-sans)] font-medium leading-[1.5] transition-all duration-300 normal-case ${
+          className={`px-6 py-2 rounded-full font-medium leading-[1.5] transition-all duration-300 normal-case ${
             activeFilter === "Website"
-              ? "bg-orange-500 text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              ? "bg-primary text-primary-foreground"
+              : "bg-secondary text-muted-foreground hover:bg-muted"
           }`}
         >
           Website
         </button>
       </div>
       
-      {/* Project Grid */}
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+  {/* Project Grid: single column on mobile/tablet; multi-column from large screens */}
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project) => (
           <motion.div
             key={project.id}
@@ -156,7 +156,7 @@ export default function LazyPortfolioGrid() {
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <Link href={`/${toSlug(project.title)}`}>
-              <Card className="hover:shadow-lg transition-all duration-300 bg-white group cursor-pointer h-full flex flex-col">
+              <Card className="hover:shadow-lg transition-all duration-300 bg-card group cursor-pointer h-full flex flex-col">
                 <CardContent className="flex flex-col flex-1 space-y-4 p-6">
                   <div className="aspect-[4/3] relative overflow-hidden rounded-md group-hover:scale-105 transition-transform duration-300">
                     <Image 
@@ -169,14 +169,14 @@ export default function LazyPortfolioGrid() {
                       blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                     />
                   </div>
-                  <div className="text-xl font-[var(--font-sans)] font-semibold leading-[1.2] group-hover:text-orange-500 transition-colors duration-300 flex-1">
+                  <div className="text-xl font-semibold leading-[1.2] group-hover:text-primary transition-colors duration-300 flex-1">
                     {project.title}
                   </div>
                   <div className="flex justify-start">
-                    <span className={`px-3 py-1 rounded-full text-xs font-[var(--font-sans)] font-medium leading-[1.5] ${
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium leading-[1.5] ${
                       project.category === "Product" 
-                        ? "bg-amber-100 text-amber-700" 
-                        : "bg-teal-100 text-teal-700"
+                        ? "bg-primary/15 text-primary" 
+                        : "bg-accent text-accent-foreground"
                     }`}>
                       {project.category}
                     </span>
