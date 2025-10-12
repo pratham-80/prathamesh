@@ -410,25 +410,25 @@ export default function Home() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: false, amount: 0.2 }}
-            className="grid md:grid-cols-2 gap-x-16 gap-y-20"
+            className="grid lg:grid-cols-2 gap-x-16 gap-y-20"
           >
             {/* Row 1 */}
-            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-border md:border-b-0 dark:border-b-0 md:pr-8">
+            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-border lg:border-b-0 dark:border-b-0 lg:pr-8">
               <h3 className="text-xl md:text-2xl font-semibold text-foreground">Product Designer & Product Manager</h3>
               <div className="text-foreground font-medium">Vidyayatan Technologies</div>
               <div className="text-sm text-foreground">May 2024 - Present</div>
-              <p className="text-base text-foreground leading-relaxed max-w-[60ch]">
+              <p className="text-base text-foreground leading-relaxed lg:max-w-[60ch]">
                 I have designed and managed digital platforms across agri-tech and ed-tech, crafting user flows,
                 product structures, and UI screens. My work includes an LMS and Assessment Management system for
                 Shri Saidas Classes and Vacademy Access, a comprehensive assessment platform for coaching
                 institutes, schools, universities, and corporates.
               </p>
             </motion.div>
-            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-border md:border-b-0 dark:border-b-0 md:pl-8">
+            <motion.div variants={fadeInUp} className="space-y-2 text-left pb-8 border-b border-border lg:border-b-0 dark:border-b-0 lg:pl-8">
               <h3 className="text-xl md:text-2xl font-semibold text-foreground">UI/UX Design Intern</h3>
               <div className="text-foreground font-medium">Technokeens</div>
               <div className="text-sm text-foreground">Feb 2024 - Apr 2024</div>
-              <p className="text-base text-foreground leading-relaxed max-w-[60ch]">
+              <p className="text-base text-foreground leading-relaxed lg:max-w-[60ch]">
                 I redesigned the company&apos;s website and focused on designing the UI for a Doctor&apos;s Clinic Management App.
                 I created user flows, wireframes, and high-fidelity screens to enhance appointment scheduling, patient
                 records, and billing processes, ensuring a seamless experience for doctors and staff.
@@ -436,14 +436,14 @@ export default function Home() {
             </motion.div>
 
             {/* Divider between rows */}
-            <div className="hidden md:block md:col-span-2 h-px bg-border" />
+            <div className="hidden lg:block lg:col-span-2 h-px bg-border" />
 
             {/* Row 2 */}
-            <motion.div variants={fadeInUp} className="space-y-2 text-left md:pr-8">
+            <motion.div variants={fadeInUp} className="space-y-2 text-left lg:pr-8">
               <h3 className="text-xl md:text-2xl font-semibold text-foreground">Architect</h3>
               <div className="text-foreground font-medium">Pragrup, Environ Planners</div>
               <div className="text-sm text-foreground">Aug 2021 - Dec 2023</div>
-              <p className="text-base text-foreground leading-relaxed max-w-[60ch]">
+              <p className="text-base text-foreground leading-relaxed lg:max-w-[60ch]">
                 I served as a junior architect at Pragrup, and Environ Planners. I contributed to various architectural
                 and interior projects, gaining valuable experience in design execution and teamwork.
               </p>
