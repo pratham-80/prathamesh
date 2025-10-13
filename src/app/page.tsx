@@ -155,7 +155,7 @@ export default function Home() {
         throw error;
       }
 
-      setMessage("Thank you for your message! I&apos;ll get back to you soon.");
+      setMessage("Thank you for your message! I'll get back to you soon.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -490,21 +490,21 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-40 z-10 fade-edge-left" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-40 z-10 fade-edge-right" />
           <div className="marquee-track marquee-wide animate-marquee-left" aria-hidden="true">
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
             {/* duplicate for seamless loop */}
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
           </div>
         </motion.div>
         {/* bottom row left->right */}
@@ -518,21 +518,21 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-40 z-10 fade-edge-left" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-40 z-10 fade-edge-right" />
           <div className="marquee-track marquee-wide animate-marquee-right" aria-hidden="true">
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
             {/* duplicate */}
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
-            <span className="text-carousel-separator text-3xl align-baseline">✦</span>
-            <span className="px-10 text-[72px] md:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Figma</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Framer</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Cursor</span>
+            <span className="text-carousel-separator text-2xl md:text-3xl align-baseline">✦</span>
+            <span className="px-10 text-[44px] sm:text-[56px] md:text-[72px] lg:text-[112px] font-bold uppercase tracking-[0] text-primary">Plasmic</span>
           </div>
         </motion.div>
       </section>
@@ -640,8 +640,9 @@ export default function Home() {
                 >
                   <Button 
                     type="submit" 
-                    disabled={loading} 
-                    className="h-14 font-semibold bg-primary hover:opacity-90 text-primary-foreground w-full sm:w-auto px-12 md:px-16 min-w-[240px] md:min-w-[280px] shadow-[0_14px_30px_rgba(23,104,255,0.28)] dark:shadow-[0_14px_30px_rgba(224,241,31,0.28)]"
+                    disabled={loading}
+                    variant="outline"
+                    className="h-11 font-semibold w-full sm:w-auto px-8 md:px-10 min-w-[180px] md:min-w-[200px] border-2 border-primary text-primary bg-transparent hover:bg-primary/10 hover:text-primary shadow-none"
                     style={{ borderRadius: "20px" }}
                   >
                     {loading ? "Sending..." : "Send"}

@@ -80,7 +80,7 @@ export default function AboutSection() {
             variants={fadeInUp}
             transition={{ duration: 0.5, delay: 0, ease: "easeOut" }}
           >
-            <p className="text-base md:text-lg text-foreground leading-[1.7]">
+            <p className="text-base md:text-lg text-foreground leading-[1.7] text-center lg:text-left">
               I began with a Bachelor of Architecture, where I honed design thinking and collaboration. Curiosity led me into digital design through a UI/UX certification and early UX work. Today, as Product Designer & Manager at Vidyayatan Technologies, I craft impactful platforms, guide teams, and mentor emerging designers.
             </p>
           </motion.div>
